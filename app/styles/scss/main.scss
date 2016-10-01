@@ -204,13 +204,29 @@ header{
       border: 1px solid #ccc;
       padding: 1em;
       background: white;
+      border-radius: 5px;
       .title{
         padding-bottom: 1em;
         h1{
           font-size: 1.5em;
+          color: #1b787b;
         }
       }
     }
   }
-
+  .language-list{
+    padding: 0em 1em;
+    li{
+      list-style: initial;
+      padding: 1em 0em;
+    }
+    .top-language{
+      display: flex;
+      align-items: center;
+      padding: .25em 0em;
+      .name, .count{
+        flex: 1;
+      }
+    }
+  }
 }

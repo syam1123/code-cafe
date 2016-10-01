@@ -46,6 +46,12 @@
             <li><md-checkbox ng-change="dash.updateFilter()" ng-model="dash.wrong" aria-label="Checkbox 1">Wrong answer</md-checkbox></li>
           </ul>
           <h1>Statical analysis</h1>
+          <ul class="language-list">
+            <li>Top 5 languages used</li>
+            <div ng-repeat="lang in dash.topLanguages | limitTo:5" class="top-language">
+              <div class="name">{{lang.language}} </div>: <div class="count">{{lang.count}}</div>
+            </div>
+          </ul>
         </div>
       </div>
     </div>

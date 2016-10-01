@@ -5,6 +5,9 @@ angular.module('codeCafe')
     dash.websites = firstPageCodes.websites,
     dash.icons = languageIcons
     dash.totalPages = 10;
+    dash.allLanguages = []
+    dash.topLanguages = []
+    dash.getlanguageCount = getlanguageCount
     dash.init = function (){
       console.log("came here", dash.websites);
       var page = 2
@@ -20,9 +23,38 @@ angular.module('codeCafe')
       $localStorage.websites = dash.websites
       dash.allWebsites = dash.websites
       for( var code in dash.allWebsites){
-        dash.cCount = (dash.allWebsites[code].match(/c /g) || []).length;
+        dash.allLanguages.push(dash.allWebsites[code].language)
       }
+      getlanguageCount(dash.allLanguages)
     }
+
+    function getlanguageCount(array_elements){
+      array_elements.sort();
+
+      var current = null;
+      var cnt = 0;
+      for (var i = 0; i < array_elements.length; i++) {
+        if (array_elements[i] != current) {
+          if (cnt > 0) {
+              dash.topLanguages.push({'language': current,
+                                      'count': cnt})
+          }
+          current = array_elements[i];
+          cnt = 1;
+        } else {
+          cnt++;
+        }
+      }
+      if (cnt > 0) {
+        dash.topLanguages.push({'language': current,
+                                'count': cnt})
+      }
+      dash.topLanguages.sort(function(a, b) {
+        return parseFloat(a.count) - parseFloat(b.count);
+      })
+      dash.topLanguages.reverse()
+    }
+
     dash.init();
 
     dash.updateFilter = function(){
