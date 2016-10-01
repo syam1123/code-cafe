@@ -1,0 +1,52 @@
+<header>
+  <div class="main-nav">
+    <ul>
+      <li><a href="">Home</a></li>
+    </ul>
+  </div>
+  <div class="logo-nav">
+    <span class="logo">code cafe</span>
+  </div>
+  <div class="profile-nav">
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="code-space-container">
+      <div class="code-space">
+        <div class="search-code">
+          <input type="text" ng-model="searchedCode" placeholder="Search (by title, level, or language)">
+        </div>
+        <div ng-repeat="code in dash.websites | filter : searchedCode | dash.accept? 'Accepted': '' | dash.skip? 'Skipped': '' | dash.memeoryExceed? 'Memory / Time limit exceeded' : '' | dash.error? 'compilation error' | dash.wrong? 'Wrong answer': '' }}" class="each-code">
+          <div class="title">
+            <img src="{{code.image}}" alt="">
+            <h1>{{code.title}}</h1>
+          </div>
+          <div class="code">
+            <div class="language">
+              <div>
+                <span class="{{code.compiler_status == 'Accepted'? 'accept' : 'wrong'}} state">
+                <i class="material-icons">{{code.compiler_status == 'Accepted'? 'check_circle' : 'error'}}</i>{{code.compiler_status}}</span> | <span class="chosen-lang">{{code.language}}</span>
+              </div>
+            </div>
+            <div class="code-content">
+              <pre>{{code.source_code}}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filter-space">
+        <div class="filter-container">
+          <h1>Filter by <b>Status</b></h1>
+          <ul>
+            <li><md-checkbox ng-model="dash.accept" aria-label="Checkbox 1">Accepted</md-checkbox></li>
+            <li><md-checkbox ng-model="dash.skip" aria-label="Checkbox 1">Skipped</md-checkbox></li>
+            <li><md-checkbox ng-model="dash.memeoryExceed" aria-label="Checkbox 1">Memory / Time limit exceeded</md-checkbox></li>
+            <li><md-checkbox ng-model="dash.error" aria-label="Checkbox 1">Runtime / compilation error</md-checkbox></li>
+            <li><md-checkbox ng-model="dash.wrong" aria-label="Checkbox 1">Wrong answer</md-checkbox></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

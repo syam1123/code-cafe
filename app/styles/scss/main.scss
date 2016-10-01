@@ -1,0 +1,197 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+*{
+  outline: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html, body{
+  height: auto;
+}
+
+body{
+  background: #f5f8fa;
+  position: absolute;
+  width: 100%;
+
+}
+header{
+  background: white;
+  height: 46px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  .main-nav{
+    flex: 1;
+    align-items: center;
+    ul{
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      align-items: center;
+      max-width: 300px;
+      margin: auto;
+      li{
+        height: 100%;
+        /* text-align: center; */
+        height: 46px;
+        a{
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          text-decoration: none;
+          height: 46px;
+          padding-left: 1em;
+          padding-right: 1em;
+        }
+        &:hover{
+          a{
+            height: 39px;
+            border-bottom: 4px solid;
+            padding-top: 3px;
+          }
+        }
+      }
+    }
+  }
+  .logo-nav{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-end;
+    span{
+      &.logo{
+        font-size: 2em;
+        font-family: fantasy;
+        font-weight: 600;
+        /* color: #7aa1c5; */
+        background: -webkit-linear-gradient(#00bcd4,#8bc34a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+  }
+  .logo-nav{
+    flex: 1;
+  }
+  .profile-nav{
+    flex: 1;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+  }
+}
+.container{
+  .code-space-container{
+    display: flex;
+    max-width: 100vw;
+    .code-space{
+      flex: 5;
+      max-width: 80vw;
+    }
+    .filter-space{
+      flex: 1;
+      min-width: 220px;
+    }
+    .code{
+      padding: 2em;
+      border: 1px solid #ccc;
+      background: white;
+      .code-content{
+        overflow: scroll;
+        max-height: 60vh;
+      }
+      .language{
+        text-align: right;
+        height: 50px;
+        margin-top: -2.52em;
+        margin-right: -2.5em;
+        div{
+          display: inline-flex;
+          align-items: center;
+          padding: 1em;
+          z-index: 3;
+          background: rgb(230, 230, 230);
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          span.state{
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+          }
+          .chosen-lang{
+            padding-left: 10px;
+          }
+        }
+        .wrong{
+          color: #ff5600;
+          font-weight: 600;
+        }
+        .accept{
+          color: green;
+          font-weight: 600;
+        }
+      }
+    }
+    .each-code{
+      margin: 1em;
+      border: 1px solid #ccc;
+      padding: 1em;
+      background: white;
+      .title{
+        padding-bottom: 1em;
+        h1{
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+
+}
