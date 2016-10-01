@@ -112,8 +112,7 @@ gulp.task('serve', ['styles', 'setenv:local'], () => {
   ]).on('change', reload);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch('app/fonts/**/*', ['fonts']);
-  gulp.watch('bower.json', ['wiredep', 'fonts']);
+  gulp.watch('bower.json', ['wiredep']);
 });
 
 gulp.task('serve:dist', () => {
@@ -127,7 +126,7 @@ gulp.task('serve:dist', () => {
   });
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['html', 'images'], () => {
   return gulp.src('dist/**/*').pipe($.size({
     title: 'build',
     gzip: true
