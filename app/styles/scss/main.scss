@@ -135,10 +135,29 @@ header{
     .code-space{
       flex: 5;
       max-width: 80vw;
+      border-right: 1px solid #aaa;
+      min-height: 100vh;
+    }
+    .search-code{
+      text-align: center;
+      padding: 1em;
+      input{
+        width: 50%;
+        padding: .5em;
+        border-radius: 5px;
+        border: 1px solid #aaa;
+      }
     }
     .filter-space{
       flex: 1;
       min-width: 220px;
+      padding: 1em;
+      h1{
+        font-size: 1.2em;
+        color: #47c08e;
+        font-weight: 600;
+        margin: 1em 0em;
+      }
     }
     .code{
       padding: 2em;

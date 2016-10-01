@@ -17,12 +17,9 @@ angular.module('codeCafe',[
         controllerAs: 'dash',
         resolve : {
           firstPageCodes : ['codesService', '$localStorage', function(codesService, $localStorage){
-            if(!$localStorage.websites){
-              return codesService.getCodes({'page' : '1'}).then(function(res){
-                return res;
-              })
-            }
-            return $localStorage.websites
+            return codesService.getCodes({'page' : '1'}).then(function(res){
+              return res;
+            })
           }],
           languageIcons: ['codesService', function(codesService){
             return codesService.getImages().then(function(res){

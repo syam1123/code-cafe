@@ -17,7 +17,7 @@
         <div class="search-code">
           <input type="text" ng-model="searchedCode" placeholder="Search (by title, level, or language)">
         </div>
-        <div ng-repeat="code in dash.websites | filter : searchedCode | dash.accept? 'Accepted': '' | dash.skip? 'Skipped': '' | dash.memeoryExceed? 'Memory / Time limit exceeded' : '' | dash.error? 'compilation error' | dash.wrong? 'Wrong answer': '' }}" class="each-code">
+        <div ng-repeat="code in dash.websites | filter : searchedCode " class="each-code">
           <div class="title">
             <img src="{{code.image}}" alt="">
             <h1>{{code.title}}</h1>
@@ -39,12 +39,13 @@
         <div class="filter-container">
           <h1>Filter by <b>Status</b></h1>
           <ul>
-            <li><md-checkbox ng-model="dash.accept" aria-label="Checkbox 1">Accepted</md-checkbox></li>
-            <li><md-checkbox ng-model="dash.skip" aria-label="Checkbox 1">Skipped</md-checkbox></li>
-            <li><md-checkbox ng-model="dash.memeoryExceed" aria-label="Checkbox 1">Memory / Time limit exceeded</md-checkbox></li>
-            <li><md-checkbox ng-model="dash.error" aria-label="Checkbox 1">Runtime / compilation error</md-checkbox></li>
-            <li><md-checkbox ng-model="dash.wrong" aria-label="Checkbox 1">Wrong answer</md-checkbox></li>
+            <li><md-checkbox ng-change="dash.updateFilter()" ng-model="dash.accept" aria-label="Checkbox 1">Accepted</md-checkbox></li>
+            <li><md-checkbox ng-change="dash.updateFilter()" ng-model="dash.skip" aria-label="Checkbox 1">Skipped</md-checkbox></li>
+            <li><md-checkbox ng-change="dash.updateFilter()" ng-model="dash.memeoryExceed" aria-label="Checkbox 1">Memory / Time limit exceeded</md-checkbox></li>
+            <li><md-checkbox ng-change="dash.updateFilter()" ng-model="dash.error" aria-label="Checkbox 1">Runtime / compilation error</md-checkbox></li>
+            <li><md-checkbox ng-change="dash.updateFilter()" ng-model="dash.wrong" aria-label="Checkbox 1">Wrong answer</md-checkbox></li>
           </ul>
+          <h1>Statical analysis</h1>
         </div>
       </div>
     </div>
