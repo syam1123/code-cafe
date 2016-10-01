@@ -8,6 +8,8 @@ angular.module('codeCafe')
     dash.allLanguages = []
     dash.topLanguages = []
     dash.getlanguageCount = getlanguageCount
+    dash.getImages = getImages
+
     dash.init = function (){
       console.log("came here", dash.websites);
       var page = 2
@@ -26,6 +28,7 @@ angular.module('codeCafe')
         dash.allLanguages.push(dash.allWebsites[code].language)
       }
       getlanguageCount(dash.allLanguages)
+      getImages(dash.allWebsites,dash.icons)
     }
 
     function getlanguageCount(array_elements){
@@ -53,6 +56,16 @@ angular.module('codeCafe')
         return parseFloat(a.count) - parseFloat(b.count);
       })
       dash.topLanguages.reverse()
+    }
+
+    function getImages(codes, images){
+      for(var i in codes){
+        for(image in images){
+          if(codes[i].language == images[image].language){
+            codes[i].image = images[image].icon
+          }
+        }
+      }
     }
 
     dash.init();
@@ -93,5 +106,6 @@ angular.module('codeCafe')
       $timeout(function(){
         $scope.$apply()
       },10)
+      getImages(dash.allWebsites,dash.icons)
     }
   }])
